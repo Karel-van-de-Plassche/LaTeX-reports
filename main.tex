@@ -1,0 +1,266 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 1.43 (17/5/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original authors:
+% Steven Gunn 
+% http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/
+% and
+% Sunil Patel
+% http://www.sunilpatel.co.uk/thesis-template/
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Note:
+% Make sure to edit document variables in the Thesis.cls file
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt, a4paper]{Thesis} % The default font size and one-sided printing (no margin offsets)
+\usepackage[T1]{fontenc}
+
+\usepackage{karel_packages/extramath}
+\usepackage{karel_packages/karel}
+\usepackage{karel_packages/document_specific}
+\usepackage[disable]{todonotes}
+\usepackage{tablefootnote}
+
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\title{\ttitle} % Defines the thesis title - don't touch this
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\setstretch{1.3} % Line spacing of 1.3
+
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{} % Clears all page headers and footers
+\rhead{\thepage} % Sets the right side header to show the page number
+\lhead{} % Clears the left side page header\newcommand\beginfigure{\begin{figure}[H] \centering \rule{35em}{0.5pt}
+
+
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+% PDF meta-data
+\hypersetup{pdftitle={Karel-van-de-Plassche-master-thesis}}
+\hypersetup{pdfsubject=Realtime capable turbulent transport modelling using neural networks}
+\hypersetup{pdfauthor=Karel van de Plassche}
+\hypersetup{pdfkeywords=turbulent transport tokamak fusion neural network machine learning}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+  \begin{center}
+      \vspace*{2cm}
+      %{\huge Realtime Capable Turbulent Transport Modelling Using Neural Networks}\\[0.2cm]
+      {\huge Realtime capable turbulent transport modelling using neural networks}\\[0.5cm]
+    by\\[0.3cm]
+      {\large Karel van de Plassche}\\
+      {\large \printdate{2017-08-29}}\\[0.5cm]
+      Under supervision of\\
+      J. Citrin (DIFFER)\\
+
+%    \HRule \\[0.4cm] % Horizontal line
+%    {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+%    \HRule \\[1.5cm] % Horizontal line
+%    \textsc{\LARGE \univname}\\ % University name
+%    and \LARGE\\
+%    \textsc{\LARGE DIFFER}\\[1.5cm]
+%%  
+%  \begin{minipage}[t]{0.4\textwidth}
+%    \begin{flushleft} \large
+%    \emph{Author:}\\
+%    {\authornames} % Author name - remove the \href bracket to remove the link
+%    \end{flushleft}
+%  \end{minipage}
+%%  
+%  \begin{minipage}{0.4\textwidth}
+%    \begin{flushright} \large
+%      \emph{Supervisors:} \\
+%      {Dr. Roger \textsc{Jaspers}}\\ % Supervisor name - remove the \href bracket to remove the link  
+%      Fabien \textsc{Jaulmes} MSc
+%  	\end{flushright}
+%  \end{minipage}\\[5cm]
+%%
+%  {\large \today}\\[6cm] % Date
+%%
+\vspace*{\fill}
+  \begin{minipage}{0.49\textwidth}
+  \begin{flushleft} \large 
+      \includegraphics[height=50pt]{DIFFERLOGO1}
+  \end{flushleft}
+  \end{minipage}
+%
+    \begin{minipage}{0.49\textwidth}
+  \begin{flushright} \large 
+      \includegraphics[height=50pt]{tuelogo}
+  \end{flushright}
+  \end{minipage}
+%
+  \end{center}
+\end{titlepage}
+%\newpage\null\thispagestyle{empty}\newpage
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+%\addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
+%
+%\abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+%
+%The global demand for energy is ever increasing. One of the  energy solutions proposed to fulfill this demand is fusion energy. However, more research is needed before fusion energy can be successfully implemented in a reactor. One of the subjects of this research is Sawtooth crashes. A problem currently faced by researchers is a mismatch between experimental data, in this case from ASDEX Upgrade, and a software package used to reconstruct plasma equilibrium before a crash, \FINESSE{}. The safety factor profile, also known as $q$-profile, was used to compare the ASDEX and \FINESSE{} data. Another software package, \kareltool{}, was designed in this report to solve this mismatch. \kareltool{}, using the Grad-Shafranov equation and Finite Element Methods, was able to quickly estimate the $q$-profile from an input pressure- and $F$-profiles. This was then used to provide the experimenter with a visual tool to make the matching of data easier. \kareltool{} calculates the $q$-profile within \SI{1}{\%} relative error, and was able to estimate the $q$-profile given input pressure and $F$ radial profiles within \SI{1}{ms}.
+%
+%\clearpage % Start a new page
+
+%%----------------------------------------------------------------------------------------
+%%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%%----------------------------------------------------------------------------------------
+%
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+%%
+%\newpage\null\thispagestyle{empty}\newpage
+\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
+%
+%\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+%\listoffigures % Write out the List of Figures
+%
+%\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+%\listoftables % Write out the List of Tables
+%
+%%----------------------------------------------------------------------------------------
+%%	ABBREVIATIONS
+%%----------------------------------------------------------------------------------------
+%
+%\clearpage % Start a new page
+%
+%\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+%
+%\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
+%\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
+%{
+%\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+%%\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+%}
+%
+%%----------------------------------------------------------------------------------------
+%%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%%----------------------------------------------------------------------------------------
+%
+%\clearpage % Start a new page
+%
+%\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
+%
+%\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
+%{
+%Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
+%
+%% Constant Name & Symbol & = & Constant Value (with units) \\
+%}
+%
+%\clearpage % Start a new page
+%
+%\lhead{\emph{Definitions}} % Set the left side page header to "Physical Constants"
+%\listofdefinitions{ll}
+%{
+%$x_y$ & variable $x$ in the $y$-direction\\
+%$x'$ & derivative with respect to $\Psi$ \\
+%$\langle x \rangle$ & numerical average of $x$ \\
+%$\tilde{x}$ & scaled dimensionless $x$ \\
+%}
+%
+%%----------------------------------------------------------------------------------------
+%%	SYMBOLS
+%%----------------------------------------------------------------------------------------
+%
+%\clearpage % Start a new page
+%
+%\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
+%
+%\listofnomenclature{lll} % Include a list of Symbols (a three column table)
+%{
+%$R$ & distance to symmetry axis & m \\
+%$Z$ & vertical coordinate & m \\
+%$\varphi$ & toroidal angle & rad \\
+%$F$ & poloidal current stream function & Tm \\
+%$p$ & pressure & Pa \\
+%$j$ & current density & Am$^{-3}$ \\
+%$\Psi$ & Poloidal flux & Am$^{2}$ \\
+%$q$ &  safety factor & 1 \\
+%% Symbol & Name & Unit \\
+%
+%& & \\ % Gap to separate the Roman symbols from the Greek
+%
+%
+%% Symbol & Name & Unit \\
+%}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\input{Chapters/Abstract}
+
+\mainmatter{} % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\listoftodos
+\input{Chapters/Introduction}
+\input{Chapters/Gyrokinetics}
+\input{Chapters/Machinelearning}
+\input{Chapters/Dataset}
+\input{Chapters/Networks}
+\input{Chapters/Discussion}
+\input{Chapters/Outlook}
+\input{Chapters/Conclusion}
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+%
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%\newpage\null\thispagestyle{empty}\newpage
+%\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+%
+%% Include the appendices of the thesis as separate files from the Appendices folder
+%% Uncomment the lines as you write the Appendices
+\begin{appendices}
+
+%%\input{Appendices/AppendixB}
+%%\input{Appendices/AppendixC}
+\end{appendices}
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%\input{Chapters/Gyrokinetics_backup}
+
+\backmatter{}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+%
+%\label{Bibliography}
+
+\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
+
+\bibliographystyle{unsrtnat_karel} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+
+\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+%
+\end{document}  

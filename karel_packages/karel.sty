@@ -1,0 +1,128 @@
+% Declare that this style file requires at least LaTeX version 2e.
+\NeedsTeXFormat{LaTeX2e}
+
+% Provide the name of your page, the date it was last updated, and a comment about what it's used for
+\ProvidesPackage{karel}[2016/08/19 Karels default LaTeX style]
+\RequirePackage{rotating}
+\RequirePackage{float}
+\RequirePackage{siunitx} %For SI units
+\RequirePackage{caption} % Captions inside tables
+\RequirePackage{subfig} %subfigures
+\RequirePackage{tabulary} % Text wrapping in tables
+\RequirePackage[noabbrev]{cleveref} % Clever referencing without abbreviations
+\RequirePackage[titletoc]{appendix} % Appendix in title
+\RequirePackage[UKenglish]{isodate} %ISO complaint printing of dates
+\RequirePackage{rotfloat}
+
+\RequirePackage{color} % Code highlighting
+\RequirePackage{listings} % Code highlighting
+
+\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+
+\newcommand\sudotodo[1]{\todo[color=red]{#1}}
+\newcommand\riontodo[1]{\todo[color=green]{#1}}
+\newcommand\willtodo[1]{\todo[color=green]{#1}}
+\newcommand\arnouttodo[1]{\todo[color=green]{#1}}
+\newcommand\matthijntodo[1]{\todo[color=green]{#1}}
+\newcommand\ctodo[1]{\todo[color=green]{#1}}
+
+\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+
+\newcommand\upperRomannumeral[1]{\uppercase\expandafter{\romannumeral#1}} % Nice roman numerals
+\newcommand{\headerref}[1]{\emph{\nameref*{#1}}} % Text for in the page headers
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+
+% Default way to flot figures
+\newenvironment{fig}[3]{
+	\begin{figure}[H]
+		\centering
+			\lwincludegraphics{#1}
+			\rule{\captionwidth}{0.5pt}
+		\caption[smth]{#2}
+		\label{#3}
+	\end{figure}
+}
+
+% Default way to include images, rescales too-big images automatically
+\newdimen\maximgwidth
+\maximgwidth=\captionwidth
+\newdimen\maximgheight
+\maximgheight=0.45\textheight
+\newcommand{\lwincludegraphics}[2][]{%
+  \sbox{0}{\includegraphics[#1]{#2}}%
+  \ifdim\wd0>\maximgwidth
+    \resizebox{\maximgwidth}{!}{\box0}%
+  \else
+    \leavevmode\box0
+  \fi
+  \ifdim\ht0>\maximgheight
+    \resizebox{!}{\maximgheight}{\box0 }%
+  \else
+    \leavevmode\box0
+  \fi}
+
+% Default way to plot two figure side-by-side
+\newenvironment{duofig}[4]{
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[b]{0.49\textwidth}
+    \lwincludegraphics[width=\textwidth]{#1}
+  \end{minipage}
+      \hfill
+  \begin{minipage}[b]{0.49\textwidth}
+    \lwincludegraphics[width=\textwidth]{#2}
+  \end{minipage}
+  \rule{35em}{0.5pt}
+\caption{#3}
+\label{#4}
+\end{figure}
+}
+
+\newenvironment{duotopfig}[4]{
+\begin{figure}[H]
+  \centering
+  \begin{minipage}[b]{\textwidth}
+    \lwincludegraphics[width=\textwidth]{#1}
+  \end{minipage}
+      \hfill
+  \begin{minipage}[b]{\textwidth}
+    \lwincludegraphics[width=\textwidth]{#2}
+  \end{minipage}
+  \rule{35em}{0.5pt}
+\caption{#3}
+\label{#4}
+\end{figure}
+}
+  
+\DeclareSIUnit[number-unit-product = \,]\toe{toe}
+\DeclareSIUnit[number-unit-product = \,]\CPUh{CPUh}
+\DeclareSIUnit[number-unit-product = \,]\CPUs{CPUs}
+
+\def\code#1{\texttt{#1}}
+% MATLAB syntax highlighting
+\lstset{captionpos=b,
+        frame=tb,
+        basicstyle=\scriptsize\ttfamily,
+        showstringspaces=false,
+        keepspaces=true}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\lstdefinelanguage{MATLAB}{%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+% Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
+\endinput

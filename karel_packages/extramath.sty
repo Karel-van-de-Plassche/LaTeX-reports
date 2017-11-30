@@ -1,0 +1,57 @@
+% Declare that this style file requires at least LaTeX version 2e.
+\NeedsTeXFormat{LaTeX2e}
+
+% Provide the name of your page, the date it was last updated, and a comment about what it's used for
+\ProvidesPackage{extramath}[2016/08/19 Some extra math functions to be used with karel style]
+
+% Math stuff
+\RequirePackage{xparse}
+\RequirePackage{bm} %Bold math
+\RequirePackage{mathtools}
+\RequirePackage{commath}
+\RequirePackage{esint} % Boundary integrals
+\RequirePackage{amsmath} % General math stuff
+\RequirePackage{mathrsfs} %Script math
+\RequirePackage{xfrac}
+\RequirePackage{fix-cm}
+
+% Matrix transpose
+\DeclareDocumentCommand{\transp}{s m}{
+\IfBooleanTF{#1}{
+  {#2}^\top}{
+  \left( #2 \right)^\top}
+}
+% Matrix inverse
+  \DeclareDocumentCommand{\inv}{s m}{
+\IfBooleanTF{#1}{
+  {#2}^{-1}}{
+  \left( #2 \right)^{-1}}
+}
+
+% Depending on functions
+\DeclareDocumentCommand \depends{m m > { \SplitList { ; }} o}
+{\IfValueTF {#3}
+{ #1(#2\ProcessList {#3}{, })}
+{    #1(#2)}
+}
+
+% Big O notation
+\newcommand{\bigo}[1][]{
+\ifthenelse{\equal{#1}{}}{\mathcal{O}}{\mathcal{O}(#1)}%
+}
+
+\renewcommand\exp[1]{e^{#1}}
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}} % Display style for vectors
+\newcommand{\realnumber}{\mathbb{R}} % Collection of all real numbers
+\newcommand{\naturalnumber}{\mathbb{N}} % Collection of all natural number
+\newcommand{\matr}[1]{\mathbf{#1}} % Display style for matrices
+\newcommand{\matrzero}{\matr{0}} % The zero matrix
+\newcommand{\matrone}{\matr{1}} % The one-matrix
+\newcommand{\matreye}{\matr{I}} % The unit-matrix
+\newcommand{\elem}{\odot} % element wise multiplication, or Hadamard Product
+\newcommand{\crosss}{\langle \sigma v \rangle} % Particle cross product
+\newcommand{\fluc}[1]{\hat{#1}} % Display style for fluctuating quantities
+\newcommand{\partdiff}[2]{\frac{\partial #1}{\partial #2}}
+
+% Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
+\endinput
