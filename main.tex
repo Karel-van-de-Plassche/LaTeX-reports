@@ -28,9 +28,9 @@
 \documentclass[11pt, a4paper]{Thesis} % The default font size and one-sided printing (no margin offsets)
 \usepackage[T1]{fontenc}
 
-\usepackage{karel_packages/extramath}
-\usepackage{karel_packages/karel}
-\usepackage{karel_packages/document_specific}
+\usepackage{karel_packages.cls/extramath}
+\usepackage{karel_packages.cls/karel}
+\usepackage{karel_packages.cls/document_specific}
 \usepackage[disable]{todonotes}
 \usepackage{tablefootnote}
 
@@ -53,9 +53,9 @@
 
 % PDF meta-data
 \hypersetup{pdftitle={Karel-van-de-Plassche-master-thesis}}
-\hypersetup{pdfsubject=Realtime capable turbulent transport modelling using neural networks}
+\hypersetup{pdfsubject=}
 \hypersetup{pdfauthor=Karel van de Plassche}
-\hypersetup{pdfkeywords=turbulent transport tokamak fusion neural network machine learning}
+\hypersetup{pdfkeywords=}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -65,49 +65,25 @@
   \begin{center}
       \vspace*{2cm}
       %{\huge Realtime Capable Turbulent Transport Modelling Using Neural Networks}\\[0.2cm]
-      {\huge Realtime capable turbulent transport modelling using neural networks}\\[0.5cm]
+      %{\huge Realtime capable turbulent transport modelling using neural networks}\\[0.5cm]
     by\\[0.3cm]
       {\large Karel van de Plassche}\\
-      {\large \printdate{2017-08-29}}\\[0.5cm]
-      Under supervision of\\
-      J. Citrin (DIFFER)\\
+      %{\large \printdate{2017-08-29}}\\[0.5cm]
+      %Under supervision of\\
+      %J. Citrin (DIFFER)\\
 
-%    \HRule \\[0.4cm] % Horizontal line
-%    {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
-%    \HRule \\[1.5cm] % Horizontal line
-%    \textsc{\LARGE \univname}\\ % University name
-%    and \LARGE\\
-%    \textsc{\LARGE DIFFER}\\[1.5cm]
-%%  
-%  \begin{minipage}[t]{0.4\textwidth}
-%    \begin{flushleft} \large
-%    \emph{Author:}\\
-%    {\authornames} % Author name - remove the \href bracket to remove the link
-%    \end{flushleft}
+%\vspace*{\fill}
+%  \begin{minipage}{0.49\textwidth}
+%  \begin{flushleft} \large 
+%      \includegraphics[height=50pt]{DIFFERLOGO1}
+%  \end{flushleft}
 %  \end{minipage}
-%%  
-%  \begin{minipage}{0.4\textwidth}
-%    \begin{flushright} \large
-%      \emph{Supervisors:} \\
-%      {Dr. Roger \textsc{Jaspers}}\\ % Supervisor name - remove the \href bracket to remove the link  
-%      Fabien \textsc{Jaulmes} MSc
-%  	\end{flushright}
-%  \end{minipage}\\[5cm]
 %%
-%  {\large \today}\\[6cm] % Date
-%%
-\vspace*{\fill}
-  \begin{minipage}{0.49\textwidth}
-  \begin{flushleft} \large 
-      \includegraphics[height=50pt]{DIFFERLOGO1}
-  \end{flushleft}
-  \end{minipage}
-%
-    \begin{minipage}{0.49\textwidth}
-  \begin{flushright} \large 
-      \includegraphics[height=50pt]{tuelogo}
-  \end{flushright}
-  \end{minipage}
+%    \begin{minipage}{0.49\textwidth}
+%  \begin{flushright} \large 
+%      \includegraphics[height=50pt]{tuelogo}
+%  \end{flushright}
+%  \end{minipage}
 %
   \end{center}
 \end{titlepage}
@@ -211,7 +187,7 @@
 %	THESIS CONTENT - CHAPTERS
 %----------------------------------------------------------------------------------------
 
-\input{Chapters/Abstract}
+%\input{Chapters/Abstract}
 
 \mainmatter{} % Begin numeric (1,2,3...) page numbering
 
@@ -221,14 +197,7 @@
 % Uncomment the lines as you write the chapters
 
 \listoftodos
-\input{Chapters/Introduction}
-\input{Chapters/Gyrokinetics}
-\input{Chapters/Machinelearning}
-\input{Chapters/Dataset}
-\input{Chapters/Networks}
-\input{Chapters/Discussion}
-\input{Chapters/Outlook}
-\input{Chapters/Conclusion}
+%\input{Chapters/Conclusion}
 
 
 %----------------------------------------------------------------------------------------
@@ -261,6 +230,6 @@
 
 \bibliographystyle{unsrtnat_karel} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 
-\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+%\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
 %
 \end{document}  
